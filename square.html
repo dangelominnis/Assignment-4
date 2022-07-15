@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Assignement 4</title>
+</head>
+<body>
+
+    <!-- Zoom Functionality -->
+    <div class="zoom">
+        <p>Turn on the <span>ZOOM Effect</span> by pressing "z". Turn it off by pressing "z".</p>
+    </div>
+
+    <!-- Preloader -->
+    <div id="loader-square">
+        <div class="square">
+            <div class="square">
+                <div class="square">
+                    <div class="square">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <section class="header">
+        <h2>Click through the preloaders!</h2>
+        <div class="header-button-box">
+            <div class="header-button">
+                <a href="circle.html" class="header-button">Circle</a>
+            </div>
+            <div class="header-button">
+                <a href="square.html" class="header-button">Square</a>
+            </div>
+            <div class="header-button">
+                <a href="genius.html" class="header-button">Genius</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Javascript -->
+    <script>
+        const { body } = document;
+
+        let zoomActivated = false;
+
+        window.addEventListener('keydown', (e) => {
+            if(e.key === 'z') {
+                zoomActivated = !zoomActivated;
+            }
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            const { clientX: x, clientY: y } = e;
+            
+            if(zoomActivated) {
+                body.style.transform = 'scale(2)';
+                body.style.transformOrigin = `${x}px ${y}px`;
+            } else {
+                body.style.transform = 'none';
+            }
+        });
+    </script>
+    
+</body>
+</html>
